@@ -1,6 +1,6 @@
-import pandas as pd
+# import pandas as pd
 
-df = pd.read_csv("BostonHousing.csv", sep=",")
+# df = pd.read_csv("Arquivos/BostonHousing.csv", sep=",")
 
-print(df[['crim', 'medv']].head(14)) # =
-print(df.loc[0:13, ["crim", "medv"]])
+# print(df[['crim', 'medv']].head(14)) # =
+# print(df.loc[0:13, ["crim", "medv"]]) 

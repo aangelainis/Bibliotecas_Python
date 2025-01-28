@@ -7,7 +7,7 @@ import pandas as pd
 ###########
 # Le o arquivo .csv
 
-# df = pd.read_csv("Arquivos/titanic.csv", sep=",") # df -> data frame
+df = pd.read_csv("Arquivos/titanic.csv", sep=",") # df -> data frame
 
 
 ###########
@@ -39,5 +39,21 @@ import pandas as pd
 # df.Age = df.Age.fillna(round(df.Age.mean(), 1)) # Substitui NaN pelo valor dentro dos parênteses, no caso, é a média
 
 
+############
+# Ordem
+
 # df = df[df["Survived"]==1].sort_values(by = "Age", ascending=False)
 # print(df.Age.head())
+
+
+############
+# Filtro
+
+# filtro = df['Pclass'] == 1 # Retorna True e False
+# print(df[filtro]) # Retorna dados do filtro
+
+
+# filtro_apenas_primeira_classe = df[df['Pclass'] == 1] # Retorna dados do filtro
+# print(filtro_apenas_primeira_classe)
+
+print(df[df['Pclass']== 1].head())
