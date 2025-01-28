@@ -1,0 +1,71 @@
+
+----------------------------- Titanic -----------------------------
+
+import pandas as pd
+df = pd.read_csv("titanic.csv", sep=",")
+
+#print(df.head())
+#print(df.tail(10))
+#print(df.columns)
+
+#print(df["Name"].head())
+#print(df.Name.head())
+
+#colunas = ["Name", "Survived"]
+#print(df[colunas].tail(2))
+
+#print(df[["Name", "Survived"]].tail(2))
+
+#print(df.shape)
+#print(df.index)
+#print(df.info())
+
+#print(df.columns[:-1]) #todas as colunas, menos ultima
+
+#print(df.iloc[2:,:-1]) # linha , coluna
+#print(df.loc[200:600,["Survived"]]) # linha , coluna
+#print(df.describe())
+# print(df.Age.describe())
+
+# print(df[['Age','Pclass']].describe())
+# print(df.Age.mean())
+
+
+# print(df["Embarked"].unique())
+#print(df.Age.value_counts())
+
+
+
+--------------------------- Not a Number ---------------------------
+
+
+#df = df.Age.dropna() # Exclui NaN
+#print(df.Age.isna()) # verifica se é NaN
+
+# df.Age = df.Age.fillna(round(df.Age.mean(), 2))
+# print(df.head())
+#df = df.Age.fillna(0)
+
+
+df = df[df["Survived"]==1].sort_values(by="Age", ascending=False)
+print(df.Age.head())
+
+# sobreviveu = df[df["Survived"]==1]
+
+
+
+----------------------------- Desafio carro -----------------------------
+
+
+import pandas as pd
+
+ap=pd.read_csv("Cars93_miss.csv", sep=",").loc[:, ["Manufacturer", "Make", "Price", "MPG.city", "Type", "Passengers"]]
+ap=ap[ap["Passengers"]==5]
+ap=ap.sort_values(by='MPG.city', ascending=False).head(10)
+ap=ap.sort_values(by='Price').head(5)
+print(ap.head())
+
+
+-------------------------------------------------------------------------------
+
+
