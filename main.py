@@ -56,4 +56,17 @@ df = pd.read_csv("Arquivos/titanic.csv", sep=",") # df -> data frame
 # filtro_apenas_primeira_classe = df[df['Pclass'] == 1] # Retorna dados do filtro
 # print(filtro_apenas_primeira_classe)
 
-print(df[df['Pclass']== 1].head())
+# print(df[df['Pclass']== 1].head())
+
+
+############
+# Criação de colunas
+
+def soma_sibsp_parch(linha): # Função de soma de colunas
+    return linha['SibSp'] + linha['Parch']
+
+nova_coluna = df.apply(soma_sibsp_parch, axis = 1) # Crindo a coluna com valores
+df['relatives'] = nova_coluna # Anexando a coluna ao arquivo
+df.to_csv('Arquivos/meu_titanic.csv', index = False) # Criando novo arquivo.csv atualizado
+
+print(df)
