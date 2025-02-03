@@ -44,24 +44,60 @@ df = pd.read_csv('Arquivos/respiradores.csv', sep = ",")
 ###########
 # Vários dados num só gráfico
 
-# plt.plot(df.MES, df.PARANA, color = 'Purple', marker = 'o', label = 'Paraná')
-# plt.plot(df.MES, df['SÃO PAULO'], color = 'Red', marker = 'o', label = 'São Paulo')
-# plt.plot(df.MES, df['SANTA CATARINA'], color = 'Yellow', marker = 'o', label = 'Santa Catarina')
-# plt.legend() # Habilita a legenda
-# plt.xticks(rotation = 45)
-# plt.grid(linestyle = 'dashed')
+plt.plot(df.MES, df.PARANA, color = 'Purple', marker = 'o', label = 'Paraná')
+plt.plot(df.MES, df['SÃO PAULO'], color = 'Red', marker = 'o', label = 'São Paulo')
+plt.plot(df.MES, df['SANTA CATARINA'], color = 'Yellow', marker = 'o', label = 'Santa Catarina')
+plt.legend() # Habilita a legenda
+plt.xticks(rotation = 45)
+plt.grid(linestyle = 'dashed')
+plt.show()
+
+
+###########
+# Escala - Gráfico de dispersão
+
+# plt.scatter(df['MES'],df['PARANA'], label = 'Paraná')
+# plt.scatter(df['MES'],df['SANTA CATARINA'], label = 'Santa Catarina')
+# plt.scatter(df['MES'],df['GOIAS'], label = 'Goiás')
+# plt.scatter(df['MES'],df['PERNAMBUCO'], label = 'Pernambuco')
+# plt.scatter(df['MES'],df['AMAPA'], label = 'Amapá')
+# plt.legend() #fontsize=10 / prop={"size":10}
+# plt.title("")
+# plt.xticks(rotation=45)
 # plt.show()
 
 
 ###########
-# Escala - Gráfico de Dispersão
+# Vários gráficos
 
-plt.scatter(df['MES'],df['PARANA'], label = 'Paraná')
-plt.scatter(df['MES'],df['SANTA CATARINA'], label = 'Santa Catarina')
-plt.scatter(df['MES'],df['GOIAS'], label = 'Goiás')
-plt.scatter(df['MES'],df['PERNAMBUCO'], label = 'Pernambuco')
-plt.scatter(df['MES'],df['AMAPA'], label = 'Amapá')
-plt.legend() #fontsize=10 / prop={"size":10}
-plt.title("")
-plt.xticks(rotation=45)
-plt.show()
+# fig, eixo = plt.subplots(nrows = 2, ncols = 2, figsize = (15, 10))
+
+# eixo[0][0].bar(df.MES, df.TOTAL)
+# eixo[0][1].bar(df.columns[1:-1], df.sum()[1:-1])
+# eixo[1][0].scatter(df['MES'], df['PARANA'])
+# eixo[1][1].plot(df.MES, df.PARANA, color = 'purple')
+
+# plt.show()
+
+
+###########
+# Gráfico de pizza
+
+# estados_sul = df.loc[:, ['PARANA', 'SANTA CATARINA', 'RIO GRANDE DO SUL ']]
+# label = estados_sul.columns
+# p = estados_sul['PARANA'].sum()
+# s = estados_sul['SANTA CATARINA'].sum()
+# r = estados_sul['RIO GRANDE DO SUL '].sum()
+
+# print(p, s, r)
+
+# plt.pie([p, s, r], labels = label, autopct = '%.2f%%')
+# plt.show()
+
+
+###########
+# Gráfico Histograma 
+
+# total_por_estado = df.iloc[:, 1:-1].sum()
+# plt.hist(total_por_estado, rwidth=.9) 
+# plt.show()
