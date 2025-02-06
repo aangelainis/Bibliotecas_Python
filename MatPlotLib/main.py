@@ -19,7 +19,7 @@ df = pd.read_csv('Arquivos/respiradores.csv', sep = ",")
 # total_por_coluna = df.sum()[1:-1]
 # x = df.columns[1:-1]
 
-# plt.bar(x, total_por_coluna, 0.9, color='red', zorder=3)
+# plt.bar(x, total_por_coluna, 0.9, color='red', zorder=3) # zorder -> camada, quanto maior mais na frente o elemento aparecerá
 # plt.title('Compra de Respiradores por estado')
 # plt.xticks(rotation='vertical')
 # plt.grid(zorder=0)
